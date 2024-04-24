@@ -1,0 +1,17 @@
+<foods>
+  <food>
+    <name>Apple</name>
+    <calories>0.52</calories>
+    <protein>0.003</protein>
+    <fats>0.002</fats>
+    <carbs>0.14</carbs>
+  </food>
+  <food>
+    <name>Orange</name>
+    <calories>0.62</calories>
+    <protein>0.12</protein>
+    <fats>0.002</fats>
+    <carbs>0.15</carbs>
+  </food>
+  <!-- Add more foods here -->
+</foods>
