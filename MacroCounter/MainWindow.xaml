@@ -7,88 +7,94 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="480" Width="800">
 
-    <Grid>
-        <!-- Enclosing container -->
-        <StackPanel>
+    <StackPanel>
+        <!-- Top Bar -->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-            <!-- Top Bar -->
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+            <!-- Previous Day Button -->
+            <Button Content="Previous Day" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 0 10 0"/>
 
-                <!-- Previous Day Button -->
-                <Button Grid.Column="0" Content="Previous Day" HorizontalAlignment="Left" Margin="0 0 10 0"/>
+            <!-- Current Day Label -->
+            <Label x:Name="currentDateLabel" Content="Today's Date" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
 
-                <!-- Current Day Label -->
-                <Label x:Name="currentDateLabel" Grid.Column="1" Content="Today's Date" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!-- Next Day Button -->
+            <Button Content="Next Day" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 10 0" Grid.Column="2"/>
 
-                <!-- Next Day Button -->
-                <Button Grid.Column="2" Content="Next Day" HorizontalAlignment="Right" Margin="0 0 10 0"/>
+            <!-- Calendar Button -->
+            <Button Content="Calendar" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3"/>
+        </Grid>
 
-                <!-- Calendar Button -->
-                <Button Grid.Column="3" Content="Calendar" HorizontalAlignment="Right"/>
+        <!-- Main Content -->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Side -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Add Another Food Button -->
+                <Button Name="AddAnotherFoodBtn" Width="150" Click="AddAnotherFoodBtn_Click" Content="Add Another Food" Margin="0,0,0,10"/>
+                <StackPanel Name="AddAnotherFoodPanel" Grid.Row="1"/>
+
+                <!-- Add Button -->
+                <Button Grid.Row="2" Content="Add" Click="AddButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,10,0,0"/>
             </Grid>
 
-            <!-- Main Grid -->
-            <Grid Margin="10" Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <!-- Right Side -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <!-- Left Side -->
-                <Grid Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                <ListView x:Name="EatenItemsListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                    <!-- Add Another Food Button -->
-                    <Button Name="AddAnotherFoodBtn" Width="300" Click="AddAnotherFoodBtn_Click" Content="Add Another Food" Margin="10"/>
-                    <Grid Name="AddAnotherFoodPanel" Grid.Row="1"/>
+                                <TextBlock Text="{Binding Name}" Margin="5"/>
+                                <TextBlock Text="{Binding Amount}" Grid.Column="1" Margin="5"/>
+                                <TextBlock Text="{Binding CalculatedCalories}" Grid.Column="2" Margin="5"/>
+                                <TextBlock Text="{Binding CalculatedProtein}" Grid.Column="3" Margin="5"/>
+                                <TextBlock Text="{Binding CalculatedFat}" Grid.Column="4" Margin="5"/>
+                                <TextBlock Text="{Binding CalculatedCarbs}" Grid.Column="5" Margin="5"/>
+                                <Button Grid.Column="6" Width="60" Content="Remove" Click="RemoveItem_Click" DataContext="{Binding}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-                    <!-- Add Button -->
-                    <Button Grid.Row="1" Content="Add" Click="AddButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.536,-0.447" Margin="0,0,10,10"/>
-                </Grid>
-
-                <!-- Right Side -->
-                <Grid Grid.Column="1" Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- List of Eaten Items -->
-                    <ListView x:Name="EatenItemsListView" Grid.Row="0">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
-                                <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Amount}"/>
-                                <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}"/>
-                                <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}"/>
-                                <GridViewColumn Header="Fat" DisplayMemberBinding="{Binding Fat}"/>
-                                <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-
-                    <!-- Summary Section -->
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
-                        <TextBlock x:Name="TotalCaloriesTextBlock" Text="Total Calories: "/>
-                        <TextBlock x:Name="TotalProteinTextBlock" Text="Total Protein: "/>
-                        <TextBlock x:Name="TotalFatTextBlock" Text="Total Fat: "/>
-                        <TextBlock x:Name="TotalCarbsTextBlock" Text="Total Carbs: "/>
-                        <Button Content="Save to XML" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Grid>
+                <!-- Summary Section -->
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock x:Name="TotalCaloriesTextBlock" Text="Total Calories: "/>
+                    <TextBlock x:Name="TotalProteinTextBlock" Text="Total Protein: "/>
+                    <TextBlock x:Name="TotalFatTextBlock" Text="Total Fat: "/>
+                    <TextBlock x:Name="TotalCarbsTextBlock" Text="Total Carbs: "/>
+                    <Button Content="Save to XML" HorizontalAlignment="Right"/>
+                </StackPanel>
             </Grid>
-        </StackPanel>
-
-
-
-    </Grid>
+        </Grid>
+    </StackPanel>
 </Window>

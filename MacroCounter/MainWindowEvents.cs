@@ -48,7 +48,9 @@ namespace MacroCounter
             if (AddAnotherFoodPanel.Children.Contains(foodInputGrid))
             {
                 AddAnotherFoodPanel.Children.Remove(foodInputGrid);
+
             }
+
         }
 
         private T FindParent<T>(DependencyObject child) where T : DependencyObject
@@ -87,8 +89,6 @@ namespace MacroCounter
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            List<EatenFoodItem> eatenFoodItems = new List<EatenFoodItem>();
-
             foreach (Grid foodInputGrid in AddAnotherFoodPanel.Children.OfType<Grid>())
             {
                 ComboBox comboBox = foodInputGrid.Children.OfType<ComboBox>().FirstOrDefault();
@@ -106,12 +106,26 @@ namespace MacroCounter
                         Amount = amount
                     };
 
-                    eatenFoodItems.Add(eatenFoodItem);
+                    EatenItemsListView.Items.Add(eatenFoodItem);
                 }
             }
 
-            CalculateTotalNutrition(eatenFoodItems);
+            // After adding all items, calculate and update the total nutrition
+            CalculateTotalNutrition(EatenItemsListView.Items.OfType<EatenFoodItem>().ToList());
         }
+
+        private void RemoveItem_Click(object sender, RoutedEventArgs e)
+        {
+            Button removeButton = sender as Button;
+            EatenFoodItem itemToRemove = removeButton.DataContext as EatenFoodItem;
+
+            if (itemToRemove != null)
+            {
+                EatenItemsListView.Items.Remove(itemToRemove);
+                CalculateTotalNutrition(EatenItemsListView.Items.OfType<EatenFoodItem>().ToList());
+            }
+        }
+
 
     }
 }
