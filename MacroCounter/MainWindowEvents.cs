@@ -16,21 +16,28 @@ namespace MacroCounter
             foodInputGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
 
             // Create ComboBox dynamically
-            ComboBox comboBox = new ComboBox { Height = 30,  Width = 150, Margin = new Thickness(0, 5, 0, 0) };
+            ComboBox comboBox = new ComboBox { Height = 30, Width = 150, Margin = new Thickness(0, 5, 0, 0) };
             // Create TextBox dynamically
-            TextBox textBox = new TextBox { Height=30, Width = 100, Margin = new Thickness(0, 5, 0, 0) };
+            TextBox textBox = new TextBox { Height = 30, Width = 100, Margin = new Thickness(0, 5, 0, 0) };
             // Create Remove button dynamically
-            Button removeButton = new Button { Height = 30,  Width = 60, Content = "Remove" };
+            Button removeButton = new Button { Height = 30, Width = 60, Content = "Remove" };
             removeButton.Click += RemoveFoodBtn_Click;
 
             // Add ComboBox, TextBox, and Remove button to the Grid
+            foodInputGrid.Children.Add(comboBox);
+            foodInputGrid.Children.Add(textBox);
+            foodInputGrid.Children.Add(removeButton);
+
+            // Set Grid.Row property for each control
             Grid.SetColumn(comboBox, 0);
             Grid.SetColumn(textBox, 1);
             Grid.SetColumn(removeButton, 2);
 
-            foodInputGrid.Children.Add(comboBox);
-            foodInputGrid.Children.Add(textBox);
-            foodInputGrid.Children.Add(removeButton);
+            // Set Grid.Row property for each control to the next available row
+            int rowIndex = AddAnotherFoodPanel.Children.Count; // Get the index of the next row
+            Grid.SetRow(comboBox, rowIndex); // Set ComboBox to next row
+            Grid.SetRow(textBox, rowIndex); // Set TextBox to next row
+            Grid.SetRow(removeButton, rowIndex); // Set Remove button to next row
 
             // Add Grid to the AddAnotherFoodPanel
             AddAnotherFoodPanel.Children.Add(foodInputGrid); // Add at the end
@@ -38,7 +45,6 @@ namespace MacroCounter
             // Call LoadFoodItems to load food items into the ComboBox
             LoadFoodItems(comboBox);
         }
-
         private void RemoveFoodBtn_Click(object sender, RoutedEventArgs e)
         {
             Button removeButton = (Button)sender;
@@ -48,9 +54,7 @@ namespace MacroCounter
             if (AddAnotherFoodPanel.Children.Contains(foodInputGrid))
             {
                 AddAnotherFoodPanel.Children.Remove(foodInputGrid);
-
             }
-
         }
 
         private T FindParent<T>(DependencyObject child) where T : DependencyObject
@@ -80,7 +84,13 @@ namespace MacroCounter
                 totalCarbs += item.Carbs * item.Amount;
             }
 
-            // Update the UI to display the total nutritional values
+            // Round up the total nutrition values to one decimal point
+            totalCalories = Math.Round(totalCalories, 1);
+            totalProtein = Math.Round(totalProtein, 1);
+            totalFat = Math.Round(totalFat, 1);
+            totalCarbs = Math.Round(totalCarbs, 1);
+
+            // Update the UI to display the rounded total nutritional values
             TotalCaloriesTextBlock.Text = $"Total Calories: {totalCalories}";
             TotalProteinTextBlock.Text = $"Total Protein: {totalProtein}";
             TotalFatTextBlock.Text = $"Total Fat: {totalFat}";
@@ -89,6 +99,8 @@ namespace MacroCounter
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            List<EatenFoodItem> eatenFoodItems = new List<EatenFoodItem>();
+
             foreach (Grid foodInputGrid in AddAnotherFoodPanel.Children.OfType<Grid>())
             {
                 ComboBox comboBox = foodInputGrid.Children.OfType<ComboBox>().FirstOrDefault();
@@ -106,26 +118,19 @@ namespace MacroCounter
                         Amount = amount
                     };
 
-                    EatenItemsListView.Items.Add(eatenFoodItem);
+                    eatenFoodItems.Add(eatenFoodItem);
                 }
             }
 
-            // After adding all items, calculate and update the total nutrition
-            CalculateTotalNutrition(EatenItemsListView.Items.OfType<EatenFoodItem>().ToList());
-        }
-
-        private void RemoveItem_Click(object sender, RoutedEventArgs e)
-        {
-            Button removeButton = sender as Button;
-            EatenFoodItem itemToRemove = removeButton.DataContext as EatenFoodItem;
-
-            if (itemToRemove != null)
+            // Add the eaten food items to the ListView
+            foreach (var eatenFoodItem in eatenFoodItems)
             {
-                EatenItemsListView.Items.Remove(itemToRemove);
-                CalculateTotalNutrition(EatenItemsListView.Items.OfType<EatenFoodItem>().ToList());
+                EatenItemsListView.Items.Add(eatenFoodItem);
             }
-        }
 
+            // Calculate total nutrition after adding items
+            CalculateTotalNutrition(eatenFoodItems);
+        }
 
     }
 }

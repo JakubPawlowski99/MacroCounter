@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|C:\\Users\\Jakub\\source\\repos\\MacroCounter\\macrocounter\\mainwindowevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|solutionrelative:macrocounter\\mainwindowevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|C:\\Users\\Jakub\\source\\repos\\MacroCounter\\macrocounter\\eatenfooditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|solutionrelative:macrocounter\\eatenfooditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|c:\\users\\jakub\\source\\repos\\macrocounter\\macrocounter\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|solutionrelative:macrocounter\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|c:\\users\\jakub\\source\\repos\\macrocounter\\macrocounter\\eatenfooditemname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|c:\\users\\jakub\\source\\repos\\macrocounter\\macrocounter\\mainwindowevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|solutionrelative:macrocounter\\mainwindowevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|C:\\Users\\Jakub\\source\\repos\\MacroCounter\\macrocounter\\eatenfooditemname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|solutionrelative:macrocounter\\eatenfooditemname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|c:\\users\\jakub\\source\\repos\\macrocounter\\macrocounter\\foods.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|solutionrelative:macrocounter\\foods.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|C:\\Users\\Jakub\\source\\repos\\MacroCounter\\macrocounter\\fooditemloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|solutionrelative:macrocounter\\fooditemloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|C:\\Users\\Jakub\\source\\repos\\MacroCounter\\macrocounter\\fooditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|solutionrelative:macrocounter\\fooditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DED4C815-4963-489A-B7CA-9473414A0FE2}|MacroCounter\\MacroCounter.csproj|C:\\Users\\Jakub\\source\\repos\\MacroCounter\\macrocounter\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +26,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MacroCounter\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\MainWindow.xaml",
+              "RelativeToolTip": "MacroCounter\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-25T09:03:27.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "EatenFoodItemName.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\EatenFoodItemName.cs",
               "RelativeDocumentMoniker": "MacroCounter\\EatenFoodItemName.cs",
@@ -59,84 +55,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MacroCounter\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\MainWindow.xaml",
-              "RelativeToolTip": "MacroCounter\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-24T15:05:50.1Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EatenFoodItem.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\EatenFoodItem.cs",
-              "RelativeDocumentMoniker": "MacroCounter\\EatenFoodItem.cs",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\EatenFoodItem.cs",
-              "RelativeToolTip": "MacroCounter\\EatenFoodItem.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAA8wHkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T11:22:20.096Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "MainWindowEvents.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\MainWindowEvents.cs",
               "RelativeDocumentMoniker": "MacroCounter\\MainWindowEvents.cs",
               "ToolTip": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\MainWindowEvents.cs",
               "RelativeToolTip": "MacroCounter\\MainWindowEvents.cs",
-              "ViewState": "AQIAAE0AAAAAAAAAAAAwwD4AAAApAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAywCAAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T10:13:17.355Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "foods.xml",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\foods.xml",
-              "RelativeDocumentMoniker": "MacroCounter\\foods.xml",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\foods.xml",
-              "RelativeToolTip": "MacroCounter\\foods.xml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-04-24T10:01:30.094Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FoodItemLoader.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\FoodItemLoader.cs",
-              "RelativeDocumentMoniker": "MacroCounter\\FoodItemLoader.cs",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\FoodItemLoader.cs",
-              "RelativeToolTip": "MacroCounter\\FoodItemLoader.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T09:59:48.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FoodItem.cs",
-              "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\FoodItem.cs",
-              "RelativeDocumentMoniker": "MacroCounter\\FoodItem.cs",
-              "ToolTip": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\FoodItem.cs",
-              "RelativeToolTip": "MacroCounter\\FoodItem.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAiwAcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T09:59:20.168Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Jakub\\source\\repos\\MacroCounter\\MacroCounter\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MacroCounter\\MainWindow.xaml.cs",
@@ -144,7 +76,8 @@
               "RelativeToolTip": "MacroCounter\\MainWindow.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T09:19:59.157Z"
+              "WhenOpened": "2024-04-24T09:19:59.157Z",
+              "EditorCaption": ""
             }
           ]
         }
