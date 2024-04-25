@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EatenItems>
+	<DayEatenFoodItems>
+		<!-- Each DayEatenFoodItems element represents a day's worth of eaten food items -->
+		<!-- Date attribute represents the date for this day -->
+		<Date>YYYY-MM-DD</Date>
+		<!-- Inside each DayEatenFoodItems element, there can be multiple EatenFoodItem elements -->
+		<!-- Each EatenFoodItem element represents a single food item eaten on this day -->
+		<EatenFoodItems>
+			<!-- EatenFoodItem element -->
+			<Name>Food Item Name</Name>
+			<Amount>Amount of Food</Amount>
+			<!-- Add more EatenFoodItem elements as needed -->
+		</EatenFoodItems>
+		<!-- Add more DayEatenFoodItems elements as needed -->
+	</DayEatenFoodItems>
+</EatenItems>

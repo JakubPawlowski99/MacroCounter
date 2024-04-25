@@ -1,0 +1,112 @@
+﻿<Window x:Class="MacroCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MacroCounter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="490"  Width="950">
+
+    <Grid Margin="10">
+        <!-- Top Bar -->
+        <Grid VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Previous Day Button -->
+            <Button Grid.Column="0" Content="Previous Day" Click="PreviousDayButton_Click" HorizontalAlignment="Left" Margin="0 0 10 20" Height="30"/>
+
+            <!-- Current Day Label -->
+            <Label x:Name="currentDateLabel" Grid.Column="1" Content="Today's Date" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30"/>
+
+            <!-- Next Day Button -->
+            <Button Grid.Column="2" Content="Next Day" HorizontalAlignment="Right" Click="NextDayButton_Click" Margin="0 0 10 20" Height="30"/>
+
+            <!-- Calendar Button -->
+            <Button Grid.Column="3" Content="Calendar" HorizontalAlignment="Right" Margin="0 0 0 20" Height="30"/>
+        </Grid>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <!-- Top Bar -->
+                <RowDefinition Height="Auto"/>
+                <!-- Main Grid -->
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Main Grid -->
+            <Grid Grid.Row="1" Margin="0,59,0,27">
+                <Grid.ColumnDefinitions>
+                    <!-- Left Side 40% -->
+                    <ColumnDefinition Width="4*"/>
+                    <!-- Right Side 50% -->
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left Side -->
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <!-- Top 30px -->
+                        <RowDefinition Height="40"/>
+                        <!-- 70% of the remaining height -->
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Add Another Food Button -->
+                    <Button Name="AddAnotherFoodBtn" Click="AddAnotherFoodBtn_Click" Content="Add Another Food" Margin="23,10,24,10"/>
+                    <StackPanel Name="AddAnotherFoodPanel" Grid.Row="1"/>
+
+                    <!-- Add Button -->
+                    <Button Grid.Row="1" Content="Add" Click="AddButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.536,-0.447" Margin="0,0,10,10" Height="20" Width="26"/>
+                </Grid>
+
+                <!-- Right Side -->
+                <Grid Grid.Column="1" Margin="5">
+                    <Grid.RowDefinitions>
+                        <!-- 70% of the window height -->
+                        <RowDefinition Height="7*"/>
+                        <!-- Auto height -->
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- List of Eaten Items -->
+                    <ListView x:Name="EatenItemsListView" Grid.Row="0">
+                        <ListView.View>
+                            <GridView>
+                                <!-- Define your ListView columns here with adjusted widths -->
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100" />
+                                <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Amount}" Width="50" />
+                                <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="50" />
+                                <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="50" />
+                                <GridViewColumn Header="Fat" DisplayMemberBinding="{Binding Fat}" Width="50" />
+                                <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="50" />
+                                <!-- Remove Button Column -->
+                                <GridViewColumn Header="Remove" Width="70">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Remove" Click="RemoveItem_Click" Tag="{Binding}" Width="50"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <!-- Summary Section -->
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBlock x:Name="TotalCaloriesTextBlock" Text="Total Calories: " Margin="0 0 10 0"/>
+                        <TextBlock x:Name="TotalProteinTextBlock" Text="Total Protein: " Margin="0 0 10 0"/>
+                        <TextBlock x:Name="TotalFatTextBlock" Text="Total Fat: " Margin="0 0 10 0"/>
+                        <TextBlock x:Name="TotalCarbsTextBlock" Text="Total Carbs: " Margin="0 0 10 0"/>
+                        <Button Content="Save to XML" HorizontalAlignment="Right" Click="SaveToXmlButton_Click" Margin="0 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
