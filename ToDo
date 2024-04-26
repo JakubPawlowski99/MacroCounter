@@ -1,0 +1,8 @@
+
+add option to save current day to xml
+add function to load xml from sertain date after pressing next/previous day button
+add callendar with option to select ceertain day, see if that day has any data befor selecting it
+add loading data from xml for current day on application load
+adjust buttons position on added foods list
+change visually the way buttons look
+add background 
