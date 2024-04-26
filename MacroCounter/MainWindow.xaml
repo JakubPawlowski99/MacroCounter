@@ -61,8 +61,8 @@
                     <Button Name="AddAnotherFoodBtn" Click="AddAnotherFoodBtn_Click" Content="Add Another Food" Margin="23,10,24,10"/>
                     <StackPanel Name="AddAnotherFoodPanel" Grid.Row="1"/>
 
-                    <!-- Add Button -->
-                    <Button Grid.Row="1" Content="Add" Click="AddButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.536,-0.447" Margin="0,0,10,10" Height="20" Width="26"/>
+                    <!-- Add new food Button -->
+                    <Button Grid.Row="1" Content="Add new food" Click="AddNewFoodButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.536,-0.447" Margin="0,0,10,10" Height="20" Width="90"/>
                 </Grid>
 
                 <!-- Right Side -->

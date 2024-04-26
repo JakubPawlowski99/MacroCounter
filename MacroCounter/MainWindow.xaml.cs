@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
+
 namespace MacroCounter
 {
     public partial class MainWindow : Window
@@ -22,6 +23,13 @@ namespace MacroCounter
             // Bind food items to the ComboBox
             comboBox.ItemsSource = foodItems;
             comboBox.DisplayMemberPath = "Name";
+        }
+
+        private void AddNewFoodButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            var addNewFoodWindow = new AddNewFood();
+            addNewFoodWindow.ShowDialog(); // Show the window as a dialog
         }
     }
 }

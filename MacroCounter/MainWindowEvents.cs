@@ -168,5 +168,8 @@ namespace MacroCounter
             CalculateTotalNutrition(eatenFoodItems);
         }
 
+
+
+        
     }
 }
