@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MacroCounter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="490" Width="800">
+        Title="MainWindow" Height="490" Width="900">
 
     <Grid Margin="10">
         <!-- Top Bar -->
@@ -81,10 +81,18 @@
                                 <!-- Define your ListView columns here with adjusted widths -->
                                 <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100" />
                                 <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Amount}" Width="50" />
-                                <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="100" />
+                                <GridViewColumn Header="Calories" DisplayMemberBinding="{Binding Calories}" Width="50" />
                                 <GridViewColumn Header="Protein" DisplayMemberBinding="{Binding Protein}" Width="50" />
                                 <GridViewColumn Header="Fat" DisplayMemberBinding="{Binding Fat}" Width="50" />
                                 <GridViewColumn Header="Carbs" DisplayMemberBinding="{Binding Carbs}" Width="50" />
+								<!-- Add a column for the remove button -->
+								<GridViewColumn Width="60">
+									<GridViewColumn.CellTemplate>
+										<DataTemplate>
+											<Button Content="Remove" Click="RemoveItem_Click" Tag="{Binding}" />
+										</DataTemplate>
+									</GridViewColumn.CellTemplate>
+								</GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

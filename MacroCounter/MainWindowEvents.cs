@@ -7,10 +7,13 @@ namespace MacroCounter
     public partial class MainWindow : Window
     {
 
+        private List<EatenFoodItem> eatenFoodItems = new List<EatenFoodItem>();
+
         private void AddAnotherFoodBtn_Click(object sender, RoutedEventArgs e)
         {
             // Create Grid dynamically
             Grid foodInputGrid = new Grid();
+            foodInputGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
             foodInputGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
             foodInputGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
             foodInputGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
@@ -22,22 +25,28 @@ namespace MacroCounter
             // Create Remove button dynamically
             Button removeButton = new Button { Height = 30, Width = 60, Content = "Remove" };
             removeButton.Click += RemoveFoodBtn_Click;
+            // Create Add button dynamically
+            Button addButton = new Button {  Height = 30, Width = 60, Content = "Add" };
+            addButton.Click += AddButton_Click;
 
             // Add ComboBox, TextBox, and Remove button to the Grid
             foodInputGrid.Children.Add(comboBox);
             foodInputGrid.Children.Add(textBox);
             foodInputGrid.Children.Add(removeButton);
+            foodInputGrid.Children.Add(addButton);
 
             // Set Grid.Row property for each control
             Grid.SetColumn(comboBox, 0);
             Grid.SetColumn(textBox, 1);
             Grid.SetColumn(removeButton, 2);
+            Grid.SetColumn(addButton, 3);
 
             // Set Grid.Row property for each control to the next available row
             int rowIndex = AddAnotherFoodPanel.Children.Count; // Get the index of the next row
             Grid.SetRow(comboBox, rowIndex); // Set ComboBox to next row
             Grid.SetRow(textBox, rowIndex); // Set TextBox to next row
             Grid.SetRow(removeButton, rowIndex); // Set Remove button to next row
+            Grid.SetRow(addButton, rowIndex);
 
             // Add Grid to the AddAnotherFoodPanel
             AddAnotherFoodPanel.Children.Add(foodInputGrid); // Add at the end
@@ -97,9 +106,16 @@ namespace MacroCounter
             TotalCarbsTextBlock.Text = $"Total Carbs: {totalCarbs}";
         }
 
+
+
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            List<EatenFoodItem> eatenFoodItems = new List<EatenFoodItem>();
+            // Clear the ListView before adding new items
+            EatenItemsListView.Items.Clear();
+
+            // Clear the list before adding new items
+            eatenFoodItems.Clear();
+
 
             foreach (Grid foodInputGrid in AddAnotherFoodPanel.Children.OfType<Grid>())
             {
@@ -129,6 +145,26 @@ namespace MacroCounter
             }
 
             // Calculate total nutrition after adding items
+            CalculateTotalNutrition(eatenFoodItems);
+        }
+
+
+
+        private void RemoveItem_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the button that was clicked
+            Button removeButton = (Button)sender;
+
+            // Get the data item bound to the button
+            EatenFoodItem itemToRemove = (EatenFoodItem)removeButton.Tag;
+
+            // Remove the item from the ListView
+            EatenItemsListView.Items.Remove(itemToRemove);
+
+            // Remove the item from the private list
+            eatenFoodItems.Remove(itemToRemove);
+
+            // Recalculate total nutrition after removing item
             CalculateTotalNutrition(eatenFoodItems);
         }
 
